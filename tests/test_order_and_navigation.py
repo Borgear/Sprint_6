@@ -17,14 +17,14 @@ class TestScooterOrderNav:
         op = OrderPage(driver)
         mp.click_order_button(locator)
         op.fill_order_form(data)
-        assert "Заказ оформлен" in op.get_success_text()
+        assert op.is_success_order_message_displayed()
 
     @allure.feature("Логотип скутер")
     def test_logo_scooter(self, driver):
         mp = MainPage(driver)
         mp.click_order_button(MainPageLocators.UP_ORDER_BTN)
         mp.click_element(MainPageLocators.LOGO_SCOOTER)
-        assert driver.current_url == Urls.MAIN_PAGE_URL
+        assert mp.get_current_url() == Urls.MAIN_PAGE_URL
 
     @allure.feature("Логотип Яндекс")
     def test_logo_yandex(self, driver):
@@ -32,4 +32,4 @@ class TestScooterOrderNav:
         mp.click_element(MainPageLocators.LOGO_YANDEX)
         driver.switch_to.window(driver.window_handles[-1])
         mp.wait_for_url_contains(Urls.DZEN_URL)
-        assert Urls.DZEN_URL in driver.current_url
+        assert mp.check_yandex_redirect(Urls.DZEN_URL)

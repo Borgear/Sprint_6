@@ -27,3 +27,7 @@ class BasePage:
     @allure.step("Ожидание появления в URL строки: {url_part}")
     def wait_for_url_contains(self, url_part):
         return WebDriverWait(self.driver, 10).until(EC.url_contains(url_part))
+    
+    @allure.step("Получить текущий URL")
+    def get_current_url(self):
+        return self.driver.current_url

@@ -12,3 +12,4 @@ def driver():
     BasePage(driver).wait_cookie_click(MainPageLocators.COOKIE_BUTTON)
     yield driver
     driver.quit()
+    

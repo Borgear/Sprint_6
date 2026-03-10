@@ -17,4 +17,4 @@ class OrderPageLocators:
     COMMENT = (By.XPATH, ".//input[@placeholder='Комментарий для курьера']") # поле комментария для курьера
     ORDER_BTN = (By.XPATH, ".//div[contains(@class, 'Order_Buttons')]//button[text()='Заказать']") # кнопка заказать
     YES_BTN = (By.XPATH, ".//button[text()='Да']") # кнопка да
-    SUCCESS_TITLE = (By.XPATH, ".//div[contains(@class, 'Order_ModalHeader')]") # заголовок успешного бронирования
+    SUCCESS_TITLE = (By.XPATH, ".//*[contains(text(), 'Заказ оформлен')]") # заголовок успешного бронирования

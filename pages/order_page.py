@@ -24,6 +24,7 @@ class OrderPage(BasePage):
             self.click_element(OrderPageLocators.ORDER_BTN)
             self.click_element(OrderPageLocators.YES_BTN)
 
-    @allure.step("Получить текст из окна успешного оформления заказа")
-    def get_success_text(self):
-        return self.find_element(OrderPageLocators.SUCCESS_TITLE).text
+    @allure.step("Проверить, что окно успешного заказа отображается")
+    def is_success_order_message_displayed(self):
+        return self.find_element(OrderPageLocators.SUCCESS_TITLE).is_displayed()
+    
