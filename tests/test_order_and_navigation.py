@@ -30,6 +30,4 @@ class TestScooterOrderNav:
     def test_logo_yandex(self, driver):
         mp = MainPage(driver)
         mp.click_element(MainPageLocators.LOGO_YANDEX)
-        driver.switch_to.window(driver.window_handles[-1])
-        mp.wait_for_url_contains(Urls.DZEN_URL)
         assert mp.check_yandex_redirect(Urls.DZEN_URL)
